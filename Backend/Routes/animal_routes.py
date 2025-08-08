@@ -50,3 +50,6 @@ def update_animal(id):
             a.type = data.get("type", a.type)
             return jsonify({'msg': 'Animal modificado'}, a.serializer()), 200
     return jsonify({'msg': 'Error'})
+
+def find_animal(id):
+    return next((a for a in animals if a.id == id), None)
